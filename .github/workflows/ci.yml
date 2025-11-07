@@ -18,4 +18,14 @@ jobs:
         run: npm install
 
       - name: 4. Ejecutar las pruebas
+        run: npm test
+# ... (otras cosas arriba)
+      - name: 3. Instalar dependencias
+        run: npm install
+
+      # ESTE ES EL PASO NUEVO QUE DEBES AÑADIR:
+      - name: Arreglar permisos de Jest
+        run: chmod +x ./node_modules/.bin/jest
+
+      - name: 4. Ejecutar las pruebas
         run: npm test 
