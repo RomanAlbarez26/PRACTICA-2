@@ -1,0 +1,21 @@
+name: Pipeline de CI
+
+on: [push]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 1. Bajar el código (Checkout)
+        uses: actions/checkout@v4
+
+      - name: 2. Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: 3. Instalar dependencias
+        run: npm install
+
+      - name: 4. Ejecutar las pruebas
+        run: npm test 
